@@ -13,9 +13,22 @@
 		A46E8D232B1A08780071A1CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A46E8D212B1A08780071A1CE /* Main.storyboard */; };
 		A46E8D252B1A08790071A1CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A46E8D242B1A08790071A1CE /* Assets.xcassets */; };
 		A46E8D282B1A08790071A1CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A46E8D262B1A08790071A1CE /* LaunchScreen.storyboard */; };
+		A46E8D322B1A08B10071A1CE /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E8D302B1A08B10071A1CE /* CartTableViewCell.swift */; };
+		A46E8D332B1A08B10071A1CE /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46E8D312B1A08B10071A1CE /* CartTableViewCell.xib */; };
+		A46E8D362B1A116C0071A1CE /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E8D352B1A116C0071A1CE /* DataModels.swift */; };
+		A46E8D392B1C499C0071A1CE /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A46E8D382B1C499C0071A1CE /* SDWebImage */; };
+		A46E8D3B2B1C4AAB0071A1CE /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E8D3A2B1C4AAB0071A1CE /* CartViewController.swift */; };
+		A46E8D402B1C542B0071A1CE /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E8D3D2B1C542B0071A1CE /* StarRating.swift */; };
+		A46E8D412B1C542B0071A1CE /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E8D3E2B1C542B0071A1CE /* Symbols.swift */; };
+		A46E8D422B1C542B0071A1CE /* AutoLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E8D3F2B1C542B0071A1CE /* AutoLayoutHelper.swift */; };
+		A46E8D442B1C6B480071A1CE /* RoundStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E8D432B1C6B470071A1CE /* RoundStepper.swift */; };
+		FD0D7D9BB1310914566ACA01 /* Pods_spaarksTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5B36897A2CD4662604B220 /* Pods_spaarksTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B2FC5D578FDAE92F05D6C88 /* Pods-spaarksTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spaarksTask.debug.xcconfig"; path = "Target Support Files/Pods-spaarksTask/Pods-spaarksTask.debug.xcconfig"; sourceTree = "<group>"; };
+		978AD71505DB7686CEE0ED9A /* Pods-spaarksTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spaarksTask.release.xcconfig"; path = "Target Support Files/Pods-spaarksTask/Pods-spaarksTask.release.xcconfig"; sourceTree = "<group>"; };
+		9A5B36897A2CD4662604B220 /* Pods_spaarksTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spaarksTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46E8D182B1A08780071A1CE /* spaarksTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spaarksTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46E8D1B2B1A08780071A1CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A46E8D1D2B1A08780071A1CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +37,14 @@
 		A46E8D242B1A08790071A1CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A46E8D272B1A08790071A1CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A46E8D292B1A08790071A1CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A46E8D302B1A08B10071A1CE /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		A46E8D312B1A08B10071A1CE /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
+		A46E8D352B1A116C0071A1CE /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		A46E8D3A2B1C4AAB0071A1CE /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		A46E8D3D2B1C542B0071A1CE /* StarRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		A46E8D3E2B1C542B0071A1CE /* Symbols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		A46E8D3F2B1C542B0071A1CE /* AutoLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutHelper.swift; sourceTree = "<group>"; };
+		A46E8D432B1C6B470071A1CE /* RoundStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +52,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46E8D392B1C499C0071A1CE /* SDWebImage in Frameworks */,
+				FD0D7D9BB1310914566ACA01 /* Pods_spaarksTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		437E6184713F659BFBB6A530 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B2FC5D578FDAE92F05D6C88 /* Pods-spaarksTask.debug.xcconfig */,
+				978AD71505DB7686CEE0ED9A /* Pods-spaarksTask.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A46E8D0F2B1A08780071A1CE = {
 			isa = PBXGroup;
 			children = (
 				A46E8D1A2B1A08780071A1CE /* spaarksTask */,
 				A46E8D192B1A08780071A1CE /* Products */,
+				437E6184713F659BFBB6A530 /* Pods */,
+				FF8E5AB59A6BBCE167DFD1F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +93,52 @@
 				A46E8D1B2B1A08780071A1CE /* AppDelegate.swift */,
 				A46E8D1D2B1A08780071A1CE /* SceneDelegate.swift */,
 				A46E8D1F2B1A08780071A1CE /* ViewController.swift */,
+				A46E8D3A2B1C4AAB0071A1CE /* CartViewController.swift */,
+				A46E8D3C2B1C53F90071A1CE /* RatingGroup */,
+				A46E8D342B1A114F0071A1CE /* AuthModels */,
+				A46E8D2F2B1A08840071A1CE /* CustomXIBCells */,
 				A46E8D212B1A08780071A1CE /* Main.storyboard */,
 				A46E8D242B1A08790071A1CE /* Assets.xcassets */,
 				A46E8D262B1A08790071A1CE /* LaunchScreen.storyboard */,
 				A46E8D292B1A08790071A1CE /* Info.plist */,
 			);
 			path = spaarksTask;
+			sourceTree = "<group>";
+		};
+		A46E8D2F2B1A08840071A1CE /* CustomXIBCells */ = {
+			isa = PBXGroup;
+			children = (
+				A46E8D302B1A08B10071A1CE /* CartTableViewCell.swift */,
+				A46E8D312B1A08B10071A1CE /* CartTableViewCell.xib */,
+			);
+			path = CustomXIBCells;
+			sourceTree = "<group>";
+		};
+		A46E8D342B1A114F0071A1CE /* AuthModels */ = {
+			isa = PBXGroup;
+			children = (
+				A46E8D352B1A116C0071A1CE /* DataModels.swift */,
+			);
+			path = AuthModels;
+			sourceTree = "<group>";
+		};
+		A46E8D3C2B1C53F90071A1CE /* RatingGroup */ = {
+			isa = PBXGroup;
+			children = (
+				A46E8D3F2B1C542B0071A1CE /* AutoLayoutHelper.swift */,
+				A46E8D432B1C6B470071A1CE /* RoundStepper.swift */,
+				A46E8D3D2B1C542B0071A1CE /* StarRating.swift */,
+				A46E8D3E2B1C542B0071A1CE /* Symbols.swift */,
+			);
+			path = RatingGroup;
+			sourceTree = "<group>";
+		};
+		FF8E5AB59A6BBCE167DFD1F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A5B36897A2CD4662604B220 /* Pods_spaarksTask.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +148,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A46E8D2C2B1A08790071A1CE /* Build configuration list for PBXNativeTarget "spaarksTask" */;
 			buildPhases = (
+				1A1B796E58A7B05409D5964C /* [CP] Check Pods Manifest.lock */,
 				A46E8D142B1A08780071A1CE /* Sources */,
 				A46E8D152B1A08780071A1CE /* Frameworks */,
 				A46E8D162B1A08780071A1CE /* Resources */,
+				9BEB34CFFEEFE0D9EAB1CA67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = spaarksTask;
+			packageProductDependencies = (
+				A46E8D382B1C499C0071A1CE /* SDWebImage */,
+			);
 			productName = spaarksTask;
 			productReference = A46E8D182B1A08780071A1CE /* spaarksTask.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +190,9 @@
 				Base,
 			);
 			mainGroup = A46E8D0F2B1A08780071A1CE;
+			packageReferences = (
+				A46E8D372B1C499C0071A1CE /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = A46E8D192B1A08780071A1CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,19 +210,69 @@
 				A46E8D282B1A08790071A1CE /* LaunchScreen.storyboard in Resources */,
 				A46E8D252B1A08790071A1CE /* Assets.xcassets in Resources */,
 				A46E8D232B1A08780071A1CE /* Main.storyboard in Resources */,
+				A46E8D332B1A08B10071A1CE /* CartTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A1B796E58A7B05409D5964C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spaarksTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BEB34CFFEEFE0D9EAB1CA67 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spaarksTask/Pods-spaarksTask-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spaarksTask/Pods-spaarksTask-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-spaarksTask/Pods-spaarksTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A46E8D142B1A08780071A1CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46E8D402B1C542B0071A1CE /* StarRating.swift in Sources */,
+				A46E8D412B1C542B0071A1CE /* Symbols.swift in Sources */,
 				A46E8D202B1A08780071A1CE /* ViewController.swift in Sources */,
+				A46E8D422B1C542B0071A1CE /* AutoLayoutHelper.swift in Sources */,
 				A46E8D1C2B1A08780071A1CE /* AppDelegate.swift in Sources */,
+				A46E8D362B1A116C0071A1CE /* DataModels.swift in Sources */,
+				A46E8D442B1C6B480071A1CE /* RoundStepper.swift in Sources */,
 				A46E8D1E2B1A08780071A1CE /* SceneDelegate.swift in Sources */,
+				A46E8D3B2B1C4AAB0071A1CE /* CartViewController.swift in Sources */,
+				A46E8D322B1A08B10071A1CE /* CartTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +414,7 @@
 		};
 		A46E8D2D2B1A08790071A1CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B2FC5D578FDAE92F05D6C88 /* Pods-spaarksTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,6 +428,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,6 +444,7 @@
 		};
 		A46E8D2E2B1A08790071A1CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 978AD71505DB7686CEE0ED9A /* Pods-spaarksTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -323,6 +458,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +494,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A46E8D372B1C499C0071A1CE /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A46E8D382B1C499C0071A1CE /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A46E8D372B1C499C0071A1CE /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A46E8D102B1A08780071A1CE /* Project object */;
 }
