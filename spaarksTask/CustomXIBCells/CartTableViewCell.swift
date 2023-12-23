@@ -50,16 +50,44 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var reviewRateLbl: UILabel!
     @IBOutlet weak var ratingStackView: UIStackView!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-       
-        // Initialization code
-    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            setupViews()
+        }
+
+        required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+            setupViews()
+        }
+
+        // MARK: - UI Setup
+
+        private func setupViews() {
+            // Configure and add your UI elements to the cell's content view
+            //contentView.addSubview(titleLabel)
+
+            // Add constraints as needed...
+
+            // Customize appearance, e.g., add corner radius, shadow, etc.
+            contentView.layer.cornerRadius = 8
+            contentView.layer.masksToBounds = true
+            contentView.layer.shadowColor = UIColor.gray.cgColor
+            contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
+            contentView.layer.shadowRadius = 4
+            contentView.layer.shadowOpacity = 0.8
+        }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+       
+        // Initialization code
     }
     
     private func setupStars() {

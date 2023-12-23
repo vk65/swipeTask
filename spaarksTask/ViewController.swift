@@ -12,18 +12,24 @@ import ValueStepper
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     var shopDataDict = [ShopDataModels]()
-    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var shopTableview: UITableView!
+    var filteredData: [ShopDataModels] = []
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        searchBar.delegate = self
         shopTableview.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
         serviceForAgendas()
+       
         // Do any additional setup after loading the view.
     }
 
     func serviceForAgendas(){
-        let apiUrl = "https://fakestoreapi.com/products"
+        let apiUrl = "https://app.getswipe.in/api/public/get"
         
         getServicesData(generalType: [ShopDataModels].self, apiEndPoint: URL(string: apiUrl)!, method: "GET") { (payload, _) in
             
@@ -38,10 +44,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //                    self.headerImg.image = nil
 //                }
 //            }
+            self.filteredData = self.shopDataDict
             self.shopTableview.delegate = self
             self.shopTableview.dataSource = self
+            self.activityIndicator.stopAnimating()
             self.shopTableview.reloadData()
+            
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                   // Stop the activity indicator when the data loading is complete
+                   self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+
+                   // Reload the table view data
+            self.shopTableview.reloadData()
+               }
+        
+        
     }
     
 
@@ -50,7 +69,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return shopDataDict.count ?? 0
+            return filteredData.count ?? 0
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,25 +77,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     else {
                         fatalError("dequeuing issue")
                 }
-            if let imageUrl = shopDataDict[indexPath.row].image {
+            let filteed = filteredData
+            if let imageUrl = filteed[indexPath.row].image {
                    let urled = imageUrl
                    let url = URL(string: urled)
-                sectionCell.shopImg.sd_setImage(with: url, completed: nil)
+                if url != nil{
+                    sectionCell.shopImg.sd_setImage(with: url, completed: nil)
+                }else{
+                    sectionCell.shopImg.image = UIImage(named: "cart")
+                }
+                
                } else {
-                   sectionCell.shopImg = nil
+                   sectionCell.shopImg.image = UIImage(named: "cart")
                }
             
             sectionCell.selectionStyle = .none
-            sectionCell.shopLbl.text = "\(shopDataDict[indexPath.row].title ?? "")"
-            sectionCell.reviewRateLbl.text = "\(shopDataDict[indexPath.row].rating.count ?? 0)"
-            sectionCell.descriptionLbl.text = "\(shopDataDict[indexPath.row].description ?? "")"
+            sectionCell.shopLbl.text = "\(filteed[indexPath.row].productName ?? "")"
+            sectionCell.reviewRateLbl.text = "Tax: \(filteed[indexPath.row].tax ?? 0)"
+            sectionCell.descriptionLbl.text = "\(filteed[indexPath.row].productType ?? "")"
 
-            sectionCell.priceLbl.text = "Rs \(shopDataDict[indexPath.row].price ?? 0.0)"
-            let frame = CGRect(x: 0, y: 0, width: sectionCell.starView.frame.width - 40, height: sectionCell.starView.frame.height)
-            let starView = StarRating(frame: frame, totalStars: 5, selectedStars: 1)
+            sectionCell.priceLbl.text = "Rs \(filteed[indexPath.row].price ?? 0.0)"
+          //  let frame = CGRect(x: 0, y: 0, width: sectionCell.starView.frame.width - 40, height: sectionCell.starView.frame.height)
+           // let starView = StarRating(frame: frame, totalStars: 5, selectedStars: 1)
            // starView.addTarget(self, action: #selector(starRatingValueChanged(_:)), for: .valueChanged)
             //starView.center = view.center
-            sectionCell.starView.addSubview(starView)
+           // sectionCell.starView.addSubview(starView)
            
             return sectionCell
         }
@@ -87,25 +112,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let home = self.storyboard?.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
-        home.modalPresentationStyle = .fullScreen
-        home.view.backgroundColor = .clear
-        home.descriptionLbl.text = shopDataDict[indexPath.row].description
-        if let imageUrl = shopDataDict[indexPath.row].image {
-               let urled = imageUrl
-               let url = URL(string: urled)
-            home.productImg.sd_setImage(with: url, completed: nil)
-        } else {
-            home.productImg = nil
-        }
-        home.appointmentCancelled = {
-            let cell = self.shopTableview.cellForRow(at: indexPath) as! CartTableViewCell
-           // cell.valueChanged1(sender: ValueStepper())
-            //cell.valueStepper.increaseValue()
-          //  self.arrAppointmentsList.remove(at: indexPath.row)//[indexPath.row]
-            self.shopTableview.reloadData()
-        }
+        
+        var items = Item(name: shopDataDict[indexPath.row].productName, description: shopDataDict[indexPath.row].productType, price: "\(shopDataDict[indexPath.row].price)", tax: "\(shopDataDict[indexPath.row].tax)")
+        home.selectedItems.append(items)
+        home.ctgyTitle = shopDataDict[indexPath.row].productName
+        home.price = "\(shopDataDict[indexPath.row].price)"
+        home.details = shopDataDict[indexPath.row].productType
+        home.tax = "\(shopDataDict[indexPath.row].tax)"
+       // let filteed = filteredData
+      //  home.descriptionLbl.text = filteed[indexPath.row].productType
+//        if let imageUrl = filteed[indexPath.row].image {
+//               let urled = imageUrl
+//               let url = URL(string: urled)
+//            if url != nil{
+//                home.productImg.sd_setImage(with: url, completed: nil)
+//            }else{
+//                home.productImg.image = UIImage(named: "cart")
+//            }
+//        } else {
+//            home.productImg.image = UIImage(named: "cart")
+//        }
+        home.modalPresentationStyle = .overFullScreen
+        home.view.backgroundColor = .white
+        navigationController?.pushViewController(home, animated: true)
+//        home.appointmentCancelled = {
+//            let cell = self.shopTableview.cellForRow(at: indexPath) as! CartTableViewCell
+//           // cell.valueChanged1(sender: ValueStepper())
+//            //cell.valueStepper.increaseValue()
+//          //  self.arrAppointmentsList.remove(at: indexPath.row)//[indexPath.row]
+//            self.shopTableview.reloadData()
+//        }
        // home.passID = "\(agendaDataDict?.data?[indexPath.row].id ?? 0)"
-        present(home, animated: true)
+      //  present(home, animated: true)
     }
         
 }
@@ -187,6 +225,31 @@ extension UIViewController{
         
     }
     
+    func postContent<T>(path: URL, modelType: T.Type, params: [String: Any] = [:],method:String, completion: @escaping (_ : T, _ : HTTPURLResponse) -> Void) where T : Decodable {
+        request(path: path, method: method, bodyData: params) { (data, httpResponse) in
+            do {
+                //                     self.data = data
+                let decodedResponse = try JSONDecoder().decode(modelType, from: data)
+                DispatchQueue.main.async {
+                    completion(decodedResponse, httpResponse)
+                }
+            }
+            catch {
+                print("Error for URL: \(httpResponse.url?.absoluteString ?? "") in decoding the response: ", error)
+                print(httpResponse)
+                if let httpResponse = httpResponse as? HTTPURLResponse {
+                    let statusCode = httpResponse.statusCode
+                    let statusMessage = HTTPURLResponse.localizedString(forStatusCode: statusCode)
+                    
+                    print("Status Code: \(statusCode)")
+                    print("Status Message: \(statusMessage)")
+                    
+                }
+                
+            }
+        }
+    }
+    
    
     
      func getServicesData<T>(generalType: T.Type,apiEndPoint:URL, method:String,  completionHandler:  @escaping (_ : T, _ : HTTPURLResponse) -> Void) where T : Decodable {
@@ -236,5 +299,26 @@ extension UISegmentedControl {
             self.setTitle("", forSegmentAt: index)
             self.subviews[index].addSubview(label)
         }
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+                   // If the search bar is empty, display all records
+                   filteredData = shopDataDict
+               } else {
+                   // Filter the data based on the search text
+                   filteredData = shopDataDict.filter { $0.productName.lowercased().contains(searchText.lowercased()) }
+               }
+     
+        shopTableview.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Reset the filtered data when cancel button is tapped
+        filteredData = shopDataDict
+        shopTableview.reloadData()
     }
 }

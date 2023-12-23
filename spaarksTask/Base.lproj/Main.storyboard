@@ -17,22 +17,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search for Shopping" translatesAutoresizingMaskIntoConstraints="NO" id="FJl-DZ-6cT">
+                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dA4-xJ-NuB"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RNn-du-sam">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <rect key="frame" x="0.0" y="164" width="393" height="688"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gfp-QC-BqY">
+                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FJl-DZ-6cT" secondAttribute="trailing" id="2Ww-iv-9qV"/>
                             <constraint firstAttribute="bottom" secondItem="RNn-du-sam" secondAttribute="bottom" id="77c-7V-IFk"/>
+                            <constraint firstItem="FJl-DZ-6cT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HdM-In-aN0"/>
+                            <constraint firstItem="RNn-du-sam" firstAttribute="top" secondItem="FJl-DZ-6cT" secondAttribute="bottom" constant="5" id="IKC-2Q-jCA"/>
                             <constraint firstItem="RNn-du-sam" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LNV-7g-naX"/>
                             <constraint firstAttribute="trailing" secondItem="RNn-du-sam" secondAttribute="trailing" id="Njo-7n-UAZ"/>
-                            <constraint firstItem="RNn-du-sam" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eCX-OT-X3a"/>
+                            <constraint firstItem="gfp-QC-BqY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jDq-Hd-qhf"/>
+                            <constraint firstItem="FJl-DZ-6cT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rVM-vs-lKd"/>
+                            <constraint firstItem="gfp-QC-BqY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xTK-ks-92P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shopping" id="A6s-Ke-pDy"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="gfp-QC-BqY" id="86e-14-NBp"/>
+                        <outlet property="searchBar" destination="FJl-DZ-6cT" id="Icx-qM-H5q"/>
                         <outlet property="shopTableview" destination="RNn-du-sam" id="fgb-Vx-azM"/>
                     </connections>
                 </viewController>
@@ -49,38 +67,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Av7-3r-beh">
-                                <rect key="frame" x="16" y="217" width="361" height="542"/>
+                                <rect key="frame" x="16" y="159" width="361" height="658"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nhU-IT-TfX">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" cart" translatesAutoresizingMaskIntoConstraints="NO" id="nhU-IT-TfX">
                                         <rect key="frame" x="60" y="25" width="241" height="118"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="118" id="D9G-K1-DqK"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="118" id="c9I-ti-Bpb"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SqG-sP-xeI">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SqG-sP-xeI">
                                         <rect key="frame" x="20" y="163" width="321" height="220"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GP-jc-2RJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="150.66666666666666" height="220"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="321" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG2-bg-ee1">
-                                                <rect key="frame" x="170.66666666666663" y="0.0" width="150.33333333333337" height="220"/>
+                                                <rect key="frame" x="0.0" y="60" width="321" height="40"/>
                                                 <string key="text">The effective maximum length is less if the value contains multi-byte characters. The effective maximum length of LONGTEXT columns also depends on the configured maximum packet size in the client/server protocol and available memory. Each LONGTEXT value is stored using a four-byte length prefix that indicates the number of bytes in the value.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1F-ir-UTU">
+                                                <rect key="frame" x="0.0" y="120" width="321" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5wo-bK-vk4">
+                                                <rect key="frame" x="0.0" y="180" width="321" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="220" id="IqV-Qk-ftC"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ctl-nI-DwL">
-                                        <rect key="frame" x="20" y="482" width="321" height="40"/>
+                                        <rect key="frame" x="20" y="598" width="321" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u00-mC-TlS">
                                                 <rect key="frame" x="0.0" y="0.0" width="201" height="40"/>
@@ -148,12 +176,15 @@
                             <constraint firstItem="Av7-3r-beh" firstAttribute="centerY" secondItem="RAm-1M-TiP" secondAttribute="centerY" constant="62" id="5L4-BQ-tD0"/>
                             <constraint firstItem="Av7-3r-beh" firstAttribute="centerX" secondItem="RAm-1M-TiP" secondAttribute="centerX" id="Ix4-gc-ySs"/>
                             <constraint firstItem="Av7-3r-beh" firstAttribute="leading" secondItem="RAm-1M-TiP" secondAttribute="leadingMargin" id="QlA-tN-6jR"/>
-                            <constraint firstItem="Av7-3r-beh" firstAttribute="top" secondItem="lDF-md-Dkl" secondAttribute="top" constant="158" id="qza-7g-5CI"/>
+                            <constraint firstItem="Av7-3r-beh" firstAttribute="top" secondItem="lDF-md-Dkl" secondAttribute="top" constant="100" id="qza-7g-5CI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLbl" destination="rG2-bg-ee1" id="sQi-CV-siO"/>
+                        <outlet property="priceLbl" destination="5wo-bK-vk4" id="2df-sC-Vpv"/>
+                        <outlet property="product" destination="0GP-jc-2RJ" id="5xV-8C-kDw"/>
                         <outlet property="productImg" destination="nhU-IT-TfX" id="uvv-Md-yad"/>
+                        <outlet property="taxlbl" destination="O1F-ir-UTU" id="hCy-of-Qix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geb-Gj-lMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -180,8 +211,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name=" cart" width="1270" height="998"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
